@@ -1,35 +1,48 @@
 import { users, type User, type InsertUser, leads, type Lead, type InsertLead } from "@shared/schema";
-import { db } from "./db";
-import { eq } from "drizzle-orm";
 
 export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
-
   createLead(lead: InsertLead): Promise<Lead>;
 }
 
-export class DatabaseStorage implements IStorage {
+export class MemStorage implements IStorage {
+  private users: Map<number, User>;
+  private leads: Map<number, Lead>;
+  private currentUserId: number;
+  private currentLeadId: number;
+
+  constructor() {
+    this.users = new Map();
+    this.leads = new Map();
+    this.currentUserId = 1;
+    this.currentLeadId = 1;
+  }
+
   async getUser(id: number): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.id, id));
-    return user;
+    return this.users.get(id);
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.username, username));
-    return user;
+    return Array.from(this.users.values()).find(
+      (user) => user.username === username,
+    );
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const [user] = await db.insert(users).values(insertUser).returning();
+    const id = this.currentUserId++;
+    const user: User = { ...insertUser, id };
+    this.users.set(id, user);
     return user;
   }
 
   async createLead(insertLead: InsertLead): Promise<Lead> {
-    const [lead] = await db.insert(leads).values(insertLead).returning();
+    const id = this.currentLeadId++;
+    const lead: Lead = { ...insertLead, id };
+    this.leads.set(id, lead);
     return lead;
   }
 }
 
-export const storage = new DatabaseStorage();
+export const storage = new MemStorage();
