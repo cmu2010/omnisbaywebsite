@@ -334,6 +334,11 @@ export default function Home() {
                     <p className="text-sm text-gray-500 mt-1">Hybrid • Bay Area, CA</p>
                     <p className="text-gray-600 mt-3 text-sm">Own the AI/ML and data-heavy components of the system, working with LLMs and RAG.</p>
                   </div>
+                  <div className="bg-white p-6 rounded-xl shadow-sm border border-blue-100">
+                    <h3 className="font-bold text-lg text-gray-900">Founding CI/CD Engineer</h3>
+                    <p className="text-sm text-gray-500 mt-1">Hybrid • Bay Area, CA</p>
+                    <p className="text-gray-600 mt-3 text-sm">Own the full end to end development and deploy process using Replit, Clause Code and Vercel. Knowledge of UI components of the system, efficient with use of Railway Apps and working with Product Managers and Account Managers.</p>
+                  </div>
                 </div>
               </div>
               <div className="md:w-1/2 flex justify-center">
