@@ -77,6 +77,7 @@ export default function Home() {
             <a href="#solutions" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">Solutions</a>
             <a href="#about" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">About</a>
             <a href="#careers" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">Careers</a>
+            <a href="http://trm.omnisbay.com" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">TRM Free Preview</a>
           </div>
           <Button onClick={scrollToWaitlist} size="sm">Get Early Access</Button>
         </div>
