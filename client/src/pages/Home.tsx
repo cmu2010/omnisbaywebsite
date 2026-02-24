@@ -235,7 +235,7 @@ export default function Home() {
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 No more sorting through endless emails and texts. Our AI triages maintenance issues automatically, connects you with local pre-screened pros, and manages the entire work order lifecycle.
               </p>
-              <Button onClick={scrollToWaitlist} variant="link" className="p-0 text-primary text-lg font-bold">
+              <Button onClick={scrollToWaitlist} variant="ghost" className="p-0 text-primary text-lg font-bold hover:bg-transparent">
                 Learn how it works <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </div>
