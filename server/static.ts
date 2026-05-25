@@ -12,6 +12,11 @@ export function serveStatic(app: Express) {
 
   app.use(express.static(distPath));
 
+  // go to OBI_PRIVACY_POLICY.html if the file requested is privacy
+  app.use("/privacy", (_req, res) => {
+    res.sendFile(path.resolve(distPath, "OBI_PRIVACY_POLICY.html"));
+  });
+
   // fall through to index.html if the file doesn't exist
   app.use("/{*path}", (_req, res) => {
     res.sendFile(path.resolve(distPath, "index.html"));

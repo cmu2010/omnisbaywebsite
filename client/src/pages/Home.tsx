@@ -393,7 +393,7 @@ export default function Home() {
             © {new Date().getFullYear()} Omnis Bay Inc. All rights reserved.
           </div>
           <div className="flex space-x-6">
-            <a href="#" className="text-gray-400 hover:text-primary transition-colors">Privacy</a>
+            <a href="OBI_PRIVACY_POLICY.html" className="text-gray-400 hover:text-primary transition-colors">Privacy</a>
             <a href="#" className="text-gray-400 hover:text-primary transition-colors">Terms</a>
             <a href="#" className="text-gray-400 hover:text-primary transition-colors">Contact</a>
           </div>
